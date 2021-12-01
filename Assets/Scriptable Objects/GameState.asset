@@ -1,0 +1,422 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aaaffda602c56a4b99647e7efed6567, type: 3}
+  m_Name: GameState
+  m_EditorClassIdentifier: 
+  waveInterval: 10
+  spawnInterval: 1
+  highScore: 70900
+  playing: 0
+  dead: 0
+  score: 0
+  currShip: 0
+  currWave: 0
+  currLevel: 1
+  currDifficulty: 1
+  bossWave: 0
+  defeatedBoss: 0
+  player: {fileID: 957767919919329195, guid: d858af085cd008a4db277cee5b555fb1, type: 3}
+  enemy: {fileID: 8989348251060880375, guid: 2110a23bfad62424f87f98f88ee9bf9a, type: 3}
+  bullet: {fileID: 1862330003246582690, guid: 097ae49b9d1aa9947a01ebe48fdea123, type: 3}
+  enemyBullet: {fileID: 5509555745596357580, guid: 708a3c14cb352ed498fdb7ef9360cd4c, type: 3}
+  powerUp: {fileID: 4480321906665844437, guid: b0c431c37bb16b345905beec2a2c7aa4, type: 3}
+  explosion: {fileID: 7491952563058280347, guid: 4f545466b8e16364b9e0aa05227a4ada, type: 3}
+  flanks:
+  - code: TopCenter
+    spawnPoint: {x: 0, y: 5, z: 0}
+    spawnRotationZ: 180
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: TopLeft
+    spawnPoint: {x: -3, y: 5, z: 0}
+    spawnRotationZ: 180
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: TopRight
+    spawnPoint: {x: 3, y: 5, z: 0}
+    spawnRotationZ: 180
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: LeftCurve
+    spawnPoint: {x: -9, y: 5, z: 0}
+    spawnRotationZ: -45
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -90
+        inSlope: -1957.5116
+        outSlope: -1957.5116
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.10833341
+      - serializedVersion: 3
+        time: 0.05
+        value: -180
+        inSlope: -1894.8787
+        outSlope: -1894.8787
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.10833323
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: RightCurve
+    spawnPoint: {x: 9, y: 5, z: 0}
+    spawnRotationZ: 45
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 89.78793
+        inSlope: 1457.1396
+        outSlope: 1457.1396
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.119799495
+      - serializedVersion: 3
+        time: 0.050411988
+        value: 180
+        inSlope: 1710.221
+        outSlope: 1710.221
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.1528602
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: LeftUp
+    spawnPoint: {x: -10, y: 2, z: 0}
+    spawnRotationZ: -90
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: LeftDown
+    spawnPoint: {x: -10, y: 0, z: 0}
+    spawnRotationZ: -90
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: RightUp
+    spawnPoint: {x: 10, y: 2, z: 0}
+    spawnRotationZ: 90
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - code: RightDown
+    spawnPoint: {x: 10, y: 0, z: 0}
+    spawnRotationZ: 90
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  enemyShips:
+  - code: RS
+    texture: {fileID: 2800000, guid: 2cc20f7a37a46ad41835227283518f0f, type: 3}
+    speed: 2
+    life: 1
+    boss: 0
+    bullets: []
+  - code: YS
+    texture: {fileID: 2800000, guid: 26a00c3818ed55046b1497348d40b3eb, type: 3}
+    speed: 0.5
+    life: 1
+    boss: 0
+    bullets:
+    - texture: {fileID: 2800000, guid: 39d96201cb8eddb4688b56fcbc944966, type: 3}
+      speed: 5
+      accuracy: 0
+      interval: 3
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 220f571ae637827499db069729a138d7, type: 3}
+  - code: BS
+    texture: {fileID: 2800000, guid: 4309e669ad829e441bbd43d90268d338, type: 3}
+    speed: 1.5
+    life: 1
+    boss: 0
+    bullets:
+    - texture: {fileID: 2800000, guid: 89837834bc3893a44a1086cec333c5cb, type: 3}
+      speed: 2
+      accuracy: 0.5
+      interval: 2
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: b72ec329752721e4eafc9c9155d1b71c, type: 3}
+  - code: RM
+    texture: {fileID: 2800000, guid: 970b2340782977d48919877007f2c5e2, type: 3}
+    speed: 2
+    life: 2
+    boss: 0
+    bullets: []
+  - code: YM
+    texture: {fileID: 2800000, guid: 17fcf917aa5b6f34fb839f7b078f0e89, type: 3}
+    speed: 0.25
+    life: 2
+    boss: 0
+    bullets:
+    - texture: {fileID: 2800000, guid: f964b413954e56c47a92c18d4fca22e5, type: 3}
+      speed: 3
+      accuracy: 0.5
+      interval: 3
+      spinning: 1
+      audioClip: {fileID: 8300000, guid: 09f37f3825e4e464fafff5d6a75fa38d, type: 3}
+  - code: BM
+    texture: {fileID: 2800000, guid: ea5604b66d8fdfb4b8ce741e992213d6, type: 3}
+    speed: 1.5
+    life: 2
+    boss: 0
+    bullets:
+    - texture: {fileID: 2800000, guid: 69c8037c8a793314c8e6b944429ec028, type: 3}
+      speed: 2
+      accuracy: 0.5
+      interval: 2
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: b72ec329752721e4eafc9c9155d1b71c, type: 3}
+  - code: RB
+    texture: {fileID: 2800000, guid: 7f0d015c17da8944eb55cf10a91d2956, type: 3}
+    speed: 0.25
+    life: 10
+    boss: 1
+    bullets:
+    - texture: {fileID: 2800000, guid: 6f58a15b20ba88044aea3daea6313a98, type: 3}
+      speed: 5
+      accuracy: 0
+      interval: 2
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 220f571ae637827499db069729a138d7, type: 3}
+    - texture: {fileID: 2800000, guid: 89837834bc3893a44a1086cec333c5cb, type: 3}
+      speed: 2
+      accuracy: 0.5
+      interval: 5
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: b72ec329752721e4eafc9c9155d1b71c, type: 3}
+  - code: YB
+    texture: {fileID: 2800000, guid: 996d98716a1b4fb4a9171a4704512b77, type: 3}
+    speed: 0.25
+    life: 20
+    boss: 1
+    bullets:
+    - texture: {fileID: 2800000, guid: 39d96201cb8eddb4688b56fcbc944966, type: 3}
+      speed: 3
+      accuracy: 0
+      interval: 3
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 220f571ae637827499db069729a138d7, type: 3}
+    - texture: {fileID: 2800000, guid: f964b413954e56c47a92c18d4fca22e5, type: 3}
+      speed: 5
+      accuracy: 0.5
+      interval: 5
+      spinning: 1
+      audioClip: {fileID: 8300000, guid: 09f37f3825e4e464fafff5d6a75fa38d, type: 3}
+  - code: BB
+    texture: {fileID: 2800000, guid: ca8d6ffb64badbc4e8890ede80c6e0ec, type: 3}
+    speed: 0.25
+    life: 30
+    boss: 1
+    bullets:
+    - texture: {fileID: 2800000, guid: e46e886281de35c45ba738a47cf95603, type: 3}
+      speed: 4
+      accuracy: 0
+      interval: 2
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 220f571ae637827499db069729a138d7, type: 3}
+    - texture: {fileID: 2800000, guid: 69c8037c8a793314c8e6b944429ec028, type: 3}
+      speed: 1
+      accuracy: 1
+      interval: 5
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: b72ec329752721e4eafc9c9155d1b71c, type: 3}
+  playerShips:
+  - code: GS
+    texture: {fileID: 2800000, guid: 85ca835cb98f2c24a8bb6b0f913c8cb8, type: 3}
+    speed: 4
+    bullets:
+    - texture: {fileID: 2800000, guid: 987a4c96ee46eca469120cc7124d5370, type: 3}
+      speed: 5
+      accuracy: 0
+      interval: 0.4
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 49c16035b839c5c47b4a117786943322, type: 3}
+  - code: GM
+    texture: {fileID: 2800000, guid: 4207db00801aecf42899d8368f0c7fc2, type: 3}
+    speed: 5
+    bullets:
+    - texture: {fileID: 2800000, guid: e46e886281de35c45ba738a47cf95603, type: 3}
+      speed: 6
+      accuracy: 0
+      interval: 0.3
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 8502a1bbea5ac1845a99ba8f42c5563a, type: 3}
+  - code: GB
+    texture: {fileID: 2800000, guid: d197f16f02a18a44b9ab1312939247db, type: 3}
+    speed: 6
+    bullets:
+    - texture: {fileID: 2800000, guid: bfbc48996a65ece419608e02fde751f4, type: 3}
+      speed: 7
+      accuracy: 0
+      interval: 0.2
+      spinning: 0
+      audioClip: {fileID: 8300000, guid: 220f571ae637827499db069729a138d7, type: 3}

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * Programmed and Designed by [Camilla Santiago](https://github.com/devcamilla) 
+ * November 2021
+ */
 [CreateAssetMenu]
 public class GameState : ScriptableObject
 {

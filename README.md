@@ -17,6 +17,9 @@ A small shooting game with infinite levels iterating difficulty between three ma
 * Game Over Mechanic
 * Music & Sfx
 
+#### Editor
+Unity 2020.3.9f1
+
 ## Credits
 
 Art, Music and Sfx Credits. See [Credits.txt](/Credits.txt)

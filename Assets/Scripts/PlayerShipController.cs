@@ -38,25 +38,28 @@ public class PlayerShipController : MonoBehaviour
 
     void Update()
     {
+        var direction = new Vector3();
         if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -_screenBounds.x)
         {
-            transform.position += new Vector3(-1, 0, 0) * _speed * Time.deltaTime;
+            direction = new Vector3(-1, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < _screenBounds.x)
         {
-            transform.position += new Vector3(1, 0, 0) * _speed * Time.deltaTime;
+            direction = new Vector3(1, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -_screenBounds.y)
         {
-            transform.position += new Vector3(0, -1, 0) * _speed * Time.deltaTime;
+            direction = new Vector3(0, -1, 0);
         }
 
         if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < _screenBounds.y)
         {
-            transform.position += new Vector3(0, 1, 0) * _speed * Time.deltaTime;
+            direction = new Vector3(0, 1, 0);
         }
+
+        transform.position += _speed * Time.deltaTime * direction;
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
